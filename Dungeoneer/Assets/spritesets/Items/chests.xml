@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>Chest 1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>sourceSize</key>
+                <string>{50,31}</string>
+            </dict>
+            <key>Chest 2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{50,0},{50,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>sourceSize</key>
+                <string>{50,31}</string>
+            </dict>
+            <key>Chest 3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{100,0},{50,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>sourceSize</key>
+                <string>{50,31}</string>
+            </dict>
+            <key>Chest 4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{150,0},{50,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>sourceSize</key>
+                <string>{50,31}</string>
+            </dict>
+            <key>Chest 5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{200,0},{50,31}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{50,31}}</string>
+                <key>sourceSize</key>
+                <string>{50,31}</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>realTextureFileName</key>
+            <string>chests.png</string>
+            <key>size</key>
+            <string>{256,32}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:3f00e49a4f7eb5731ab330c13bbe6874$</string>
+            <key>textureFileName</key>
+            <string>chests.png</string>
+        </dict>
+    </dict>
+</plist>
