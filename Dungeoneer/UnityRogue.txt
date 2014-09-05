@@ -1,0 +1,272 @@
+UNITY ROGUE DEV DIARY:
+-------------------------------------
+TODO:
+- Fix room creation bug where no rooms are found.
+
+- Graphics
+	- More content
+	- Particle effects?
+- Fix combat:
+	- Further improve stats system
+	- Create attack manager?
+- Fix loot:
+	- Improve item spawners and stat system
+- Fix windows:
+	- Fix character window:
+		- Add little icons for all attributes
+	- Add icons to status bar
+	- Add HP/XP bars (need more thought on layout)
+	- Add little skills/potions icons and link them to hotkeys
+- Level generation
+	- Write more and better level generation algorithms
+	- Add destructible ornamentation - bookshelves, statues, etc
+- Skills
+	- Improve.
+- Inventory
+	- CLEAN CODE!
+- LOS
+	- improve
+- Clean up code!
+	- break up the larger methods
+- Make and use CONSTANTS repository
+	- Organize all STRINGS eventually
+- Add a scoresheet screen
+
+FOR LATER:
+- Sound?
+
+
+-------------------------------------
+DIARY:
+2013:
+Mar 21st:
+- Wrote a "MobManager" for the coordination of groups of goons.
+	- Needs a bit more work but functions reasonably well.
+	- Simplified monster AI code to some small extent.
+- Drew sprites for 3 monsters: "Scorpion", "Ogre", and "Furbeast"
+
+Mar 18th:
+- Have been trying to fix a tiling seam issue; to no avail.
+- Implemented A*; ran a one hour test; works fine.
+
+Mar 15th:
+- Finally fixed Catacombs code; produces a level of corridors.
+
+Mar 13th:
+- Reworked the Catacombs generation algo; needs more work.
+
+Mar 12th:
+- Fixed nasty little bug with the Lava/Cave Bridge-builder... 
+Had an AND where I meant OR... Ow.
+- Wrote a basic algorithm for the generation of a "Catacombs"
+corridors-type dungeon. Needs more work.
+
+Mar 11th:
+- Improved Cave-level generation algorithm. Now there are no isolated
+chambers...
+- Added new level type, Lava Islands. Has its own level generator and
+basic tiles.
+
+Mar 10th:
+- Changed the way visibility works. Before a tile was "visible" (FogAlpha=0),
+"explored" (FogAlpha=0.5), or "unexplored" (FogAlpha =1 ). Now I just use a 
+black box for the fog. What is invisible is just black. Within sight range,
+the alpha of a visible tile decreases with distance from hero. Looks good.
+- Added little effect at level up - screen tints to some color...
+- Improved the dungeon generator for the Rooms type of level. Now the result
+looks something like the floor plan of an apartment building. There are a few
+core rooms, and each connects to a number of little chambers.
+
+Mar 8th:
+- Added border padding to walls. Adds a ton of sprites. Not sure if good idea.
+- Added border outcrops to cave walls. Looks nicer!
+- Monsters emit red "blood" particles upon being struck. This
+was necessary to provide some type of graphic hit detection.
+- Destroyed monsters release blood spots on ground.
+
+Mar 7th:
+- Added "stars" annimation for stunned goons.
+- Put tiles/ fog/ projectiles into own containers at run-time to
+make debugging easier.
+- Added "MapDetails" infrastructure. Amounts to throwing a few
+sprites to the map to make it more interesting.
+- Added a primitive "Destructibles" infrastructure. Right now
+there are barrels, which fade-out when hit, spawning little
+particles in the direction of strike.
+
+Mar 6th:
+- Added cooldowns to skills.
+- Added a graphical display for the cooldowns.
+- Inserted parameters for the existing skills in CONSTANTS
+and synced them with the skills code.
+- Added effects system for monsters. Current effects are
+"stun" and "slow".
+- Fixed a weird bug with persistent projectiles. Had to use
+"OT.Destroy(.)" method rather than "OT.DestroyObject(.)".
+Unsure as to why.
+
+Mar 5th:
+- Yesterday sick, couldn't work. Today added skill graphic effects:
+	- Defense:
+		- "Shield" - increases size of on-screen shield.
+		- "Dodge" - makes cloak transparent.
+		- "Wall" - blue ring around player. (Kind of annoying?)
+	- Stun/ nuke:
+		- "Smash" - needs more work
+		- "Snipe" - homing arrow; needs more work
+		- "Burn" - fireball hits monsters from above from
+			off-screen.
+	- Teleport:
+		- "Slink" and "Leap" - player rolls to cursor...
+		- "Teleport" - player spawns at cursor; a white
+			circle fades to full transparency on him.
+	- (from last time) AoE:
+		- "Fireball" - projectile followed by explosion.
+		- "Flurry" - player twirls 360 deg.
+		- "Multishot" - multiple arrows in 30deg arc.
+- Added skills requirements.
+- Added save/load of skills.
+- At this stage there is a working basic skill system!
+
+Mar 3rd:
+- Added various skills:
+	- A "defense"-type skill - player is slower, less
+	vulnerable.
+	- A "stun/nuke"-type skill - target monster suffers
+	damage and some type of stun.
+	- A "teleport"-type skill - teleport to cursor.
+	- An "AoE"-type skill:
+		- Fireball
+		- Multishot
+		- Flurry (hero does a 360 degree twirl; AOE on
+		self)
+
+Mar 2nd:
+- Added active skills bar on the screen.
+- Added very basic infrastructure for using skills.
+
+March 1st:
+- Added a few skills icons.
+
+Feb 27th:
+- Added off-hand on-screen display; synced with main-hand. Can now
+"double-wield," wear a shield, etc.
+- Added a basic offhand block mechanism.
+- Fixed item swap bug arising from depth levels of the item under the 
+cursor and the target inventory item.
+
+Feb 26th:
+- Improved inventory system. Added icons for the inventory interface.
+Synced paperdoll on-screen weapon sprite with the weapon in the 
+equipment.
+- Improved item stats display; now have background and colors.
+- Added view stats toggle for items on the ground - a stats box
+appears if a key is held.
+
+Feb 25th:
+- Cleaned up the code a bit. Perhaps I should break up some large classes.
+- Improved the LOS algo so it shows corner-walls. Algo needs further
+improvement.
+- Added paperdoll behind the equipment slots.
+- Arranged the equipment slots around the screen.
+- Added ItemClass enum to items; equipment slots now check against
+ItemClass before permitting item insertion.
+- Added Items/Resources folder to assign texture to items in the
+inventory (as opposed to items on the ground, which use OTSprite).
+
+Feb 24th:
+- Fixed crashing bug (infinite loop with Tween footstep manager)
+- Monsters turn red and get dismembered as a sort of a deathanim
+- Added own art for items on the ground
+- Added own art for openable chest. Now all graphical content is
+100% mine. Ugly, but mine.
+
+Feb 23rd:
+- Added one more monster skin.
+- Added monster skin selection.
+- Replaced almost all art content with own.
+- Fixed a weird LOS check bug.
+- Having problem with random crashes with unknown causes.
+
+Feb 22nd:
+- Removed all "borrowed" character spritesets. Replaced them a single own
+OrcGrunt paperdoll.
+- Added attack animations; the player can wear two handheld items:
+one should be a weapon; it hangs by the player and does a simple
+animation at attack: twirl (meant for staffs), stab, slash, and
+recoil (meant for bows and crossbows). Will add shields later.
+- Added own projectiles (arrow and magic ball).
+
+Feb 21st:
+- Added basic own sprites
+	- Elementary paperdoll model
+	- Tiles; artifacts at adjascency problems...
+	- ^^ Fixed the adjascency problem.
+	- Removed some old spritesets.
+
+Feb 20th:
+- Added a basic skills interface.
+	- Added skills window.
+	- Added skills description floating tooltips.
+	- Added a skill class and an effect struct.
+	- Added ApplyEffects function for recalculating stats.
+	- Need to improve overall effects infrastructure.
+
+Feb 19th:
+- Started work on a skill system.
+
+Feb 6:
+- Added more monsters
+- Added basic monster stat system
+- Added cave level generator
+
+Feb 5:
+- Added proper inventory system with items with random properties
+- Added inventory save/load
+- Added basic equipment interface with a system for applying item bonuses
+
+Feb 4:
+- Made a CONSTANTS class for storage of static parameters
+- Cheaned up the code
+- Added basic Line-of-sight. The game's getting heavy due to tons
+of suboptimal routines...
+- Fixed the problem, turned out was calling LOS too often
+
+Feb 3:
+- Made a basic inventory interface; still need to implement item 
+pick up from ground.
+- Improved the inventory interface, added pick up from ground.
+
+Feb 1:
+- Did almost no work; struggled to figure out how to resize
+texture in unity outside of Orthello.
+
+Jan 31:
+- Added monster and chest generation in DungeonGen
+- Added up/down stairs and level succession
+- Added hero saving/loading
+
+Jan 30:
+- Wrote a level generation algorithm for a level of rooms
+	- Improved the rooms generation/connection algorithm
+
+Jan 29:
+- Replaced "footie" class with a generalized "hero" class
+- Added intro screen and character generation screen
+	- Linked between scenes
+- Implemented a proper projectiles system
+	- Got projectile sprites
+- Implemented a proper (though still basic) damage system
+- Improved stats system
+- Fixed character anim/ projectile spawn rate
+- Added continuous attack
+- Fixed character window:
+	- Added little portrait & character name
+	- Aligned left
+- Fixed angle routines
+
+Jan 28:
+- Started this diary; game in early alpha with the following implemented:
+	- footman & grunt animations and controls, basic AI, basic combat,
+	basic loot, basic inventory & character windows, basic status bar
+- Added archer/wizard assets
